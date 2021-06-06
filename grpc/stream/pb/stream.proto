@@ -1,0 +1,21 @@
+syntax = "proto3";
+package stream;
+option go_package = "../stream";
+//protoc --go_out=plugins=grpc:. *.proto
+service EchoStream{
+  rpc SayHelloStream (stream StreamRequest) returns(stream StreamReply){}
+}
+
+message StreamRequestBody {
+  int64 messageId = 1;
+  int64 ReceiverId = 2;
+  string name = 3;
+}
+message StreamRequest {
+  int64  messageType = 1;
+  StreamRequestBody body = 2;
+}
+
+message StreamReply{
+  bool ok = 1;
+}
