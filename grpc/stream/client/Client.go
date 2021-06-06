@@ -38,7 +38,7 @@ func SayRoute(client stream.EchoStreamClient) error {
 		})
 		time.Sleep(100 * time.Microsecond)
 	}
-	time.Sleep(10 * time.Second)
+	//time.Sleep(10 * time.Second)
 	_ = s.CloseSend()
 	return nil
 }
